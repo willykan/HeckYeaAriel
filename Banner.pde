@@ -13,22 +13,21 @@ class Banner {
     img = loadImage("OhHeckYeaBanner.png");
   }
 
-  public void update(float x, float y) {
-    if (location.x > x) {
+  public void update(PVector pLocation) {
+    planeLocation = pLocation;
+    if (location.x > planeLocation.x) {
       velocity.x = -2;
-    } else if (location.x < x) {
-      location.x = x+100;
-      location.y = y;
+    } else if (location.x < planeLocation.x) {
+      location.x = planeLocation.x+100;
+      location.y = planeLocation.y;
     }
-    if (location.y > y) {
+    if (location.y > planeLocation.y) {
       acceleration.y = -.1;
-    } else if (location.y < y) {
+    } else if (location.y < planeLocation.y) {
       acceleration.y = .1;
     }
     velocity.add(acceleration);
     location.add(velocity);
-    planeLocation.x = x;
-    planeLocation.y = y;
   }
 
   public void display() {
@@ -36,6 +35,7 @@ class Banner {
     translate(location.x, location.y);
     fill(255, 0, 0);
     image(img, 0, 0, wid, wid);
+    //rect(0, 0, wid, hight);
     popMatrix();
     line(location.x, location.y+wid/2, planeLocation.x, planeLocation.y);
     line(location.x, location.y-wid/2, planeLocation.x, planeLocation.y);
