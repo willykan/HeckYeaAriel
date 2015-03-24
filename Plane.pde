@@ -9,10 +9,11 @@ class Plane {
   public Plane() {
     size(600, 600);
     imageMode(CENTER);
+    rectMode(CENTER);
     location = new PVector(width+20, height/2);
     velocity = new PVector(-2, 0);
     acceleration = new PVector(0, .2);
-    banner = new Banner(location.x+100, location.y, 100, 20);
+    banner = new Banner(location.x+150, location.y, 115, 20);
     plane = loadImage("plane.jpeg");
     smokeArray = new ArrayList<Smoke>();
   }

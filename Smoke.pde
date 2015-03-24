@@ -20,7 +20,6 @@ class Smoke {
 
   // Method to display
   void display() {
-    imageMode(CENTER);
     tint(255, lifespan);
     image(img, loc.x+50, loc.y, 50, 50);
     noTint();
